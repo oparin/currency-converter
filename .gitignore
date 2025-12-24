@@ -23,4 +23,5 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
-/deploy/mysql/db_data/*
+/deploy/mysql/db_data/
+config/currency-converter.php

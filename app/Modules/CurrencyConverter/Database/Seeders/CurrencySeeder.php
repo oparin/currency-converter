@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Modules\CurrencyConverter\Database\Seeders;
 
-use App\Enums\Currency;
-use App\Models\Currency as CurrencyModel;
+use App\Modules\CurrencyConverter\Models\Currency as CurrencyModel;
+use App\Modules\CurrencyConverter\Enums\Currency;
 use Illuminate\Database\Seeder;
 
 class CurrencySeeder extends Seeder
@@ -14,11 +14,11 @@ class CurrencySeeder extends Seeder
     public function run(): void
     {
         foreach (Currency::cases() as $currency) {
-            CurrencyModel::Create(
+            CurrencyModel::create(
                 [
                     'code'      => $currency->value,
                     'name'      => $currency->label(),
-                    'active' => true,
+                    'active'    => true,
                 ]
             );
         }

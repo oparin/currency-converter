@@ -6,7 +6,7 @@ services:
       dockerfile: deploy/php/Dockerfile
     image: cc-app
     container_name: cc_app
-    restart: unless-stopped
+#    restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
