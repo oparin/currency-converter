@@ -12,7 +12,7 @@ return new class extends Migration {
 
             $table->string('code')->unique();
             $table->string('name')->nullable();
-            $table->decimal('rate', 20,8)->nullable();
+            $table->decimal('rate', 20, 8)->nullable();
             $table->boolean('active')->default(true);
 
             $table->timestamps();

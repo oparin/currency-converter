@@ -5,7 +5,6 @@ namespace App\Modules\CurrencyConverter\Providers;
 use App\Modules\CurrencyConverter\Contracts\ConverterInterface;
 use App\Modules\CurrencyConverter\Services\ConverterService;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Foundation\Application;
 
 class CurrencyConverterServiceProvider extends ServiceProvider
 {
@@ -18,6 +17,7 @@ class CurrencyConverterServiceProvider extends ServiceProvider
         // Register commands
         $this->commands([
             \App\Modules\CurrencyConverter\Console\Commands\UpdateExchangeRatesCommand::class,
+            \App\Modules\CurrencyConverter\Console\Commands\TestCommand::class,
         ]);
     }
 
