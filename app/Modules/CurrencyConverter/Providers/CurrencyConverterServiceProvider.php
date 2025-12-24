@@ -17,7 +17,6 @@ class CurrencyConverterServiceProvider extends ServiceProvider
         // Register commands
         $this->commands([
             \App\Modules\CurrencyConverter\Console\Commands\UpdateExchangeRatesCommand::class,
-            \App\Modules\CurrencyConverter\Console\Commands\TestCommand::class,
         ]);
     }
 
