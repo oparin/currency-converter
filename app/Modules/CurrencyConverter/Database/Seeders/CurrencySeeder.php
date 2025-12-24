@@ -2,8 +2,7 @@
 
 namespace App\Modules\CurrencyConverter\Database\Seeders;
 
-use App\Modules\CurrencyConverter\Models\Currency as CurrencyModel;
-use App\Modules\CurrencyConverter\Enums\Currency;
+use App\Modules\CurrencyConverter\Models\Currency;
 use Illuminate\Database\Seeder;
 
 class CurrencySeeder extends Seeder
@@ -13,11 +12,14 @@ class CurrencySeeder extends Seeder
      */
     public function run(): void
     {
-        foreach (Currency::cases() as $currency) {
-            CurrencyModel::create(
+        /** @var array $defaultCurrencies */
+        $defaultCurrencies = config('currency-converter.default_currencies');
+
+        foreach ($defaultCurrencies as $code => $label) {
+            Currency::create(
                 [
-                    'code'      => $currency->value,
-                    'name'      => $currency->label(),
+                    'code'      => $code,
+                    'name'      => $label,
                     'active'    => true,
                 ]
             );

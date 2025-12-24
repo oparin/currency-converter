@@ -6,30 +6,30 @@ return [
     | FreeCurrencyAPI Configuration
     |--------------------------------------------------------------------------
     */
-    'api_key' => env('FREECURRENCYAPI_API_KEY'),
+    'api_key'            => env('FREECURRENCYAPI_API_KEY'),
 
     /*
     |--------------------------------------------------------------------------
     | Base url
     |--------------------------------------------------------------------------
     */
-    'base_url' => env('CURRENCY_CONVERTER_BASE_URL', 'https://api.freecurrencyapi.com/v1/'),
+    'base_url'           => env('CURRENCY_CONVERTER_BASE_URL', 'https://api.freecurrencyapi.com/v1/'),
 
     /*
     |--------------------------------------------------------------------------
     | Base Currency
     |--------------------------------------------------------------------------
     */
-    'base_currency' => env('CURRENCY_CONVERTER_BASE_CURRENCY', 'USD'),
+    'base_currency'      => env('CURRENCY_CONVERTER_BASE_CURRENCY', 'USD'),
 
     /*
     |--------------------------------------------------------------------------
     | Cache Configuration
     |--------------------------------------------------------------------------
     */
-    'cache' => [
+    'cache'              => [
         'enabled' => env('CURRENCY_CONVERTER_CACHE_ENABLED', true),
-        'ttl' => env('CURRENCY_CONVERTER_CACHE_TTL', 3600), // seconds
+        'ttl'     => env('CURRENCY_CONVERTER_CACHE_TTL', 3600), // seconds
     ],
 
     /*
@@ -37,9 +37,9 @@ return [
     | Update Schedule
     |--------------------------------------------------------------------------
     */
-    'update_schedule' => [
+    'update_schedule'    => [
         'enabled' => env('CURRENCY_CONVERTER_UPDATE_ENABLED', true),
-        'time' => env('CURRENCY_CONVERTER_UPDATE_TIME', '00:00'),
+        'time'    => env('CURRENCY_CONVERTER_UPDATE_TIME', '00:00'),
     ],
 
     /*
@@ -48,7 +48,9 @@ return [
     |--------------------------------------------------------------------------
     */
     'default_currencies' => [
-        'USD', 'EUR', 'RUB', 'GBP', 'JPY', 'CNY', 'CAD', 'AUD', 'CHF', 'INR'
+        'USD' => 'US Dollar',
+        'EUR' => 'Euro',
+        'RUB' => 'Russian Ruble',
     ],
 
     /*
@@ -56,5 +58,5 @@ return [
     | Precision
     |--------------------------------------------------------------------------
     */
-    'precision' => env('CURRENCY_CONVERTER_PRECISION', 6),
+    'precision'          => env('CURRENCY_CONVERTER_PRECISION', 6),
 ];

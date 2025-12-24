@@ -2,7 +2,7 @@
 
 namespace App\Modules\CurrencyConverter\Jobs;
 
-use App\Modules\CurrencyConverter\Services\ApiService;
+use App\Modules\CurrencyConverter\Services\ExchangeRateService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -14,10 +14,10 @@ class UpdateExchangeRatesJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function handle(ApiService $apiService): void
+    public function handle(ExchangeRateService $rateService): void
     {
         try {
-            $apiService->updateAllRates();
+            $rateService->updateAllRates();
             Log::info('Exchange rates updated successfully via job');
         } catch (\Exception $e) {
             Log::error('Failed to update exchange rates: ' . $e->getMessage());
@@ -27,6 +27,6 @@ class UpdateExchangeRatesJob implements ShouldQueue
 
     public function retryUntil()
     {
-        return now()->addDay();
+        return now()->addHour();
     }
 }

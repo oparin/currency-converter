@@ -2,7 +2,9 @@
 
 namespace App\Modules\CurrencyConverter\Services;
 
+use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 
 class ApiService
@@ -23,24 +25,28 @@ class ApiService
         $this->apiKey = config('currency-converter.api_key');
     }
 
-    public function getLatestRates(string $baseCurrency = 'USD')
+    /**
+     * @throws GuzzleException
+     */
+    public function getLatestRates(string $currencies = '', string $baseCurrency = 'USD')
     {
         try {
             $response = $this->client->get('latest', [
                 'query' => [
                     'apikey'        => $this->apiKey,
                     'base_currency' => $baseCurrency,
+                    'currencies'    => $currencies,
                 ]
             ]);
 
             $data = json_decode($response->getBody()->getContents(), true);
 
             if (empty($data['data'])) {
-                throw new \Exception('Invalid response from API');
+                throw new Exception('Invalid response from API');
             }
 
             return $data['data'];
-        } catch (\Exception $e) {
+        } catch (GuzzleException $e) {
             Log::error('Failed to fetch exchange rates: ' . $e->getMessage());
             throw $e;
         }
@@ -56,7 +62,7 @@ class ApiService
             $data = json_decode($response->getBody()->getContents(), true);
 
             return $data['data'] ?? [];
-        } catch (\Exception $e) {
+        } catch (GuzzleException $e) {
             Log::error('Failed to fetch currencies: ' . $e->getMessage());
             return [];
         }
