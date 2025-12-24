@@ -22,6 +22,9 @@ class CurrencyConverterServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        // Register facade alias
+        $this->app->alias('currency.converter', \App\Modules\CurrencyConverter\Facades\CurrencyConverter::class);
+
         // Publish config and migrations
         $this->publishes(
             [
