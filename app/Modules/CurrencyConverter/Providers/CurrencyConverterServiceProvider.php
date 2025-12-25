@@ -34,6 +34,7 @@ class CurrencyConverterServiceProvider extends ServiceProvider
 
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../Routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/api.php');
 
         // Load views
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'currency-converter');

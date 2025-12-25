@@ -41,4 +41,23 @@ interface ConverterInterface
      * @throws Exception If conversion fails or rate is not available
      */
     public function convert(float $amount, string $fromCurrency, string $toCurrency): float;
+
+    /**
+     * Retrieve the current exchange rate between two currencies.
+     *
+     * This method returns the current exchange rate for converting from the
+     * source currency to the target currency.
+     *
+     * @example
+     * $rate = $converter->getRate('USD', 'EUR'); // Returns exchange rate
+     *
+     * @param string $fromCurrency Source currency code (e.g., 'USD', 'EUR')
+     * @param string $toCurrency Target currency code (e.g., 'RUB', 'KZT')
+     * @return float Exchange rate (1 USD = X EUR, where X is the returned rate)
+     * @throws InvalidArgumentException If currency codes are invalid
+     * @throws Exception If rate is not available
+     * @return float
+     * @throws Exception
+     */
+    public function getRate(string $fromCurrency, string $toCurrency): float;
 }

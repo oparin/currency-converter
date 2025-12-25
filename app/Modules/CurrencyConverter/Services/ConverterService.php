@@ -30,4 +30,21 @@ class ConverterService implements ConverterInterface
 
         return $amount / $from->rate * $to->rate;
     }
+
+    public function getRate(string $fromCurrency, string $toCurrency): float
+    {
+        $from = Currency::query()
+            ->where('code', $fromCurrency)
+            ->first();
+
+        $to = Currency::query()
+            ->where('code', $toCurrency)
+            ->first();
+
+        if ($from && $to) {
+            return $to->rate / $from->rate;
+        }
+
+        throw new \Exception("Exchange rate from {$fromCurrency} to {$toCurrency} not found");
+    }
 }
