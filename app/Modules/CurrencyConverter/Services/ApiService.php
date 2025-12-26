@@ -52,11 +52,14 @@ class ApiService
         }
     }
 
-    public function getAvailableCurrencies(): array
+    public function getAvailableCurrencies(string $currencies = ''): array
     {
         try {
             $response = $this->client->get('currencies', [
-                'query' => ['apikey' => $this->apiKey]
+                'query' => [
+                    'apikey'     => $this->apiKey,
+                    'currencies' => $currencies,
+                ]
             ]);
 
             $data = json_decode($response->getBody()->getContents(), true);
