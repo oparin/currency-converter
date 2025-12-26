@@ -719,11 +719,11 @@
         }, 300000); // 5 минут
 
         // Инициализация с первой конвертацией
-        setTimeout(() => {
-            if (!localStorage.getItem('currencyConversionHistory')) {
-                form.dispatchEvent(new Event('submit'));
-            }
-        }, 1000);
+        // setTimeout(() => {
+        //     if (!localStorage.getItem('currencyConversionHistory')) {
+        //         form.dispatchEvent(new Event('submit'));
+        //     }
+        // }, 1000);
     });
 </script>
 </body>
