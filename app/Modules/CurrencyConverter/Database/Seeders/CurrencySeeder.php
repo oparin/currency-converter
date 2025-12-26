@@ -15,11 +15,12 @@ class CurrencySeeder extends Seeder
         /** @var array $defaultCurrencies */
         $defaultCurrencies = config('currency-converter.default_currencies');
 
-        foreach ($defaultCurrencies as $code => $label) {
+        foreach ($defaultCurrencies as $currency) {
             Currency::create(
                 [
-                    'code'      => $code,
-                    'name'      => $label,
+                    'code'      => $currency['code'],
+                    'name'      => $currency['name'],
+                    'symbol'    => $currency['symbol'],
                     'active'    => true,
                 ]
             );

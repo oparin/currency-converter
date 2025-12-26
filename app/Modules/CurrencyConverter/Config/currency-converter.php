@@ -24,39 +24,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Configuration
-    |--------------------------------------------------------------------------
-    */
-    'cache'              => [
-        'enabled' => env('CURRENCY_CONVERTER_CACHE_ENABLED', true),
-        'ttl'     => env('CURRENCY_CONVERTER_CACHE_TTL', 3600), // seconds
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Update Schedule
-    |--------------------------------------------------------------------------
-    */
-    'update_schedule'    => [
-        'enabled' => env('CURRENCY_CONVERTER_UPDATE_ENABLED', true),
-        'time'    => env('CURRENCY_CONVERTER_UPDATE_TIME', '00:00'),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
     | Default Currencies
     |--------------------------------------------------------------------------
     */
     'default_currencies' => [
-        'USD' => 'US Dollar',
-        'EUR' => 'Euro',
-        'RUB' => 'Russian Ruble',
+        [
+            'code'   => 'USD',
+            'name'   => 'US Dollar',
+            'symbol' => '$',
+        ],
+        [
+            'code'   => 'EUR',
+            'name'   => 'Euro',
+            'symbol' => '€',
+        ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Precision
-    |--------------------------------------------------------------------------
-    */
-    'precision'          => env('CURRENCY_CONVERTER_PRECISION', 6),
 ];

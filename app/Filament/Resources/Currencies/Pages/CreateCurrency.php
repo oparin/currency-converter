@@ -32,7 +32,8 @@ class CreateCurrency extends CreateRecord
 
         $currency = $this->apiService->getAvailableCurrencies($code);
         if (isset($currency[$code])) {
-            $data['name'] = $currency[$code]['name'];
+            $data['name']   = $currency[$code]['name'];
+            $data['symbol'] = $currency[$code]['symbol'];
         }
 
         return $data;

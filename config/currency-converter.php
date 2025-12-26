@@ -28,8 +28,15 @@ return [
     |--------------------------------------------------------------------------
     */
     'default_currencies' => [
-        'USD' => 'US Dollar',
-        'EUR' => 'Euro',
-        'RUB' => 'Russian Ruble',
+        [
+            'code'   => 'USD',
+            'name'   => 'US Dollar',
+            'symbol' => '$',
+        ],
+        [
+            'code'   => 'EUR',
+            'name'   => 'Euro',
+            'symbol' => '€',
+        ],
     ],
 ];

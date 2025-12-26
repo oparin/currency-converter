@@ -17,6 +17,7 @@ class CurrenciesTable
             ->columns([
                 TextColumn::make('code'),
                 TextColumn::make('name'),
+                TextColumn::make('symbol'),
                 TextColumn::make('rate'),
                 TextColumn::make('updated_at'),
             ])
